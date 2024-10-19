@@ -28,7 +28,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +57,7 @@
             android:id="@+id/tvWfdDisconnected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="WiFi Direct - Disconnected"
+            android:text="Attendance and Feedback System"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,27 +68,41 @@
             android:id="@+id/btnCreateGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="62dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="50dp"
             android:onClick="createGroup"
-            android:text="Create Group"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintEnd_toStartOf="@+id/btnDiscover"
+            android:text="Start Class"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWfdDisconnected" />
 
-        <Button
-            android:id="@+id/btnDiscover"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="62dp"
-            android:onClick="discoverNearbyPeers"
-            android:text="Discover Nearby"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btnCreateGroup"
-            app:layout_constraintTop_toBottomOf="@+id/tvWfdDisconnected" />
+        <!--        <Button-->
+        <!--            android:id="@+id/btnCreateGroup"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="50dp"-->
+        <!--            android:layout_marginEnd="50dp"-->
+        <!--            android:onClick="createGroup"-->
+        <!--            android:text="Start Class"-->
+        <!--            android:gravity="center"-->
+        <!--            app:layout_constraintHorizontal_chainStyle="packed"-->
+        <!--            app:layout_constraintVertical_chainStyle="packed"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/tvWfdDisconnected" />-->
 
+        <!--            app:layout_constraintEnd_toStartOf="@+id/btnDiscover"-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btnDiscover"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="62dp"-->
+        <!--            android:onClick="discoverNearbyPeers"-->
+        <!--            android:text="Discover Nearby"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/btnCreateGroup"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/tvWfdDisconnected" />-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPeerListing"
@@ -110,14 +123,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvChat"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/llChatSend"
-            />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="-21dp" />
 
         <LinearLayout
             android:id="@+id/llChatSend"
@@ -137,7 +151,7 @@
                 android:maxLines="5"
                 android:hint="Enter message..."
                 android:layout_height="wrap_content"
-                 />
+                />
 
             <Button
                 android:layout_width="0dp"
@@ -146,7 +160,82 @@
                 android:onClick="sendMessage"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
-        
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/classStarted"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvNetworkInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Network Info"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnEndClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:onClick="endClass"
+            android:text="End Class"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNetworkInfo" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/attendanceList"
+            android:layout_width="316dp"
+            android:layout_height="368dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/studentChat"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent">-->
+
+        <!--            <EditText-->
+        <!--                android:id="@+id/enterMessage"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_weight="1"-->
+        <!--                android:inputType="textMultiLine"-->
+        <!--                android:minLines="3"-->
+        <!--                android:maxLines="5"-->
+        <!--                android:hint="Send to student..."-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                />-->
+
+        <!--            <Button-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_weight="0.4"-->
+        <!--                android:text="Send"-->
+        <!--                android:onClick="sendMessage"-->
+        <!--                android:layout_height="wrap_content"/>-->
+        <!--        </LinearLayout>-->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
